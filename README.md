@@ -1,9 +1,11 @@
 🛒API de Autenticación y Gestión de Productos 
 
 📌 Descripción
+
 Esta es una API backend que implementa autenticación y autorización de usuarios mediante JWT (JSON Web Tokens). Permite la gestión de usuarios, productos y un carrito de compras, asegurando que cada usuario tenga control sobre sus datos y los productos asociados a su cuenta dependiendo el rol de cada usuario (vendedor o comprador).
 
 La API está estructurada con MongoDB y Mongoose, interrelacionando los modelos de Usuario y Producto. También incluye un sistema de carrito de compras para administrar productos agregados por los usuarios.
+
 
 🎯 Objetivos de Aprendizaje
 - Implementar autenticación y autorización en una aplicación backend.
@@ -23,7 +25,8 @@ La API está estructurada con MongoDB y Mongoose, interrelacionando los modelos 
 - MongoDB Atlas para el almacenamiento en la nube.
 
 
-#🚀 Instalación y Uso
+🚀 Instalación y Uso
+
 1️⃣ Clonar el repositorio
     
       git clone https://github.com/tu-usuario/tu-repositorio.git
