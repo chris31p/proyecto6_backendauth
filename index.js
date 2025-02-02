@@ -20,6 +20,10 @@ app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/carts', cartRoutes);
 
+app.get("/", (req, res) => {
+    res.send("API funcionando correctamente en Render 🎉");
+  });
+  
 //Conexión a MongoDB
 mongoose
 .connect(process.env.MONGO_URI)
@@ -27,4 +31,5 @@ mongoose
 .catch((error)=> console.error(error));
 
 const PORT = process.env.PORT || 5000;
+console.log(`Iniciando servidor en el puerto: ${PORT}`);
 app.listen(PORT, ()=> console.log(`Servidor corriendo en el puerto ${PORT}`));

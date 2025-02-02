@@ -9,7 +9,7 @@ const options = {
       version: "1.0.0",
       description: "Documentación de la API para manejar la autenticación y autorización de usuarios y gestionar productos y carrito de compras",
     },
-    servers: [{ url: "http://localhost:3000" }],
+    servers: [{ url: "https://proyecto6-backendauth.onrender.com" }],
     components: {
       securitySchemes: {
         bearerAuth: {
