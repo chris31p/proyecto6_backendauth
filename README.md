@@ -1,4 +1,4 @@
-🛒 #API de Autenticación y Gestión de Productos
+#API de Autenticación y Gestión de Productos 🛒
 
 📌 Descripción
 Esta es una API backend que implementa autenticación y autorización de usuarios mediante JWT (JSON Web Tokens). Permite la gestión de usuarios, productos y un carrito de compras, asegurando que cada usuario tenga control sobre sus datos y los productos asociados a su cuenta dependiendo el rol de cada usuario (vendedor o comprador).
@@ -23,7 +23,7 @@ La API está estructurada con MongoDB y Mongoose, interrelacionando los modelos 
 -> MongoDB Atlas para el almacenamiento en la nube.
 
 
-🚀 #Instalación y Uso
+#🚀 Instalación y Uso
 1️⃣ Clonar el repositorio
     
       git clone https://github.com/tu-usuario/tu-repositorio.git
@@ -46,7 +46,7 @@ La API está estructurada con MongoDB y Mongoose, interrelacionando los modelos 
     npm start
     El servidor se ejecutará en http://localhost:3000
 
-📖 #Documentación de la API
+📖 Documentación de la API
   - Swagger está disponible en:
     http://localhost:3000/api-docs
     
@@ -54,7 +54,7 @@ La API está estructurada con MongoDB y Mongoose, interrelacionando los modelos 
 
 ![image](https://github.com/user-attachments/assets/d8688b2f-971a-4735-bb18-70e410e7f50f)
 
-📌 #Endpoints Principales
+📌 Endpoints Principales
 
 🔹 Usuarios
     POST /api/users/register → Registro de usuarios.
@@ -94,7 +94,7 @@ La API está estructurada con MongoDB y Mongoose, interrelacionando los modelos 
   ![image](https://github.com/user-attachments/assets/c9ae1745-8ac9-49b4-952f-20f04ffdd841)
 
 
-🚀 #Despliegue
+🚀 Despliegue
   La API está desplegada en:
     🔗 Render.com - Backend
     
