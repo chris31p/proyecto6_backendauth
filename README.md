@@ -125,6 +125,7 @@ La API está estructurada con MongoDB y Mongoose, interrelacionando los modelos 
       npm start
   
 - Variables de entorno: Agrega las mismas variables que en tu .env:
+  
       PORT=3000
       MONGO_URI=tu_url_de_mongodb_atlas
       JWT_SECRET=tu_clave_secreta
