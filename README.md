@@ -106,7 +106,35 @@ La API está estructurada con MongoDB y Mongoose, interrelacionando los modelos 
 ![image](https://github.com/user-attachments/assets/c9ae1745-8ac9-49b4-952f-20f04ffdd841)
 
 
-🚀 Despliegue:
+🚀 Despliegue en Render.com
+
+1️⃣ Crear una cuenta en Render
+- Si no tienes una cuenta, regístrate en Render.com y accede a tu panel de control.
+
+2️⃣ Crear un nuevo servicio
+- Dirígete a "New Web Service".
+- Conecta tu repositorio de GitHub.
+- Selecciona la rama que contiene tu código.
+  
+3️⃣ Configurar la API en Render
+- Nombre del servicio: Especifica un nombre para tu API.
+- Runtime: Selecciona Node.js.
+- Comando de inicio, usa:
+  
+      bash
+      npm start
+  
+- Variables de entorno: Agrega las mismas variables que en tu .env:
+      PORT=3000
+      MONGO_URI=tu_url_de_mongodb_atlas
+      JWT_SECRET=tu_clave_secreta
+  
+4️⃣ Desplegar la API
+- Haz clic en "Create Web Service" y Render iniciará el despliegue.
+- Una vez completado, Render proporcionará una URL pública para tu API.
+
+  
+🌎 Acceso a la API Desplegada:
 
 - La API está desplegada en:   
     🔗 Render.com - Backend
