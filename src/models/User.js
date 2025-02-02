@@ -10,7 +10,7 @@ const UserSchema = mongoose.Schema(
     email: {
       type: String,
       required: true,
-      unique: true,
+      unsique: true,
       lowercase: true,
       match: [/.+@.+\..+/, "Por favor utiliza un dirección de correo válida"],
     },

@@ -5,9 +5,12 @@ const cors = require('cors');
 const userRoutes = require('./src/routes/userRoutes');
 const productRoutes = require('./src/routes/productRoutes');
 const cartRoutes = require('./src/routes/cartRoutes');
+const swaggerDocs = require("./src/config/swaggerConfig");
 
 dotenv.config();
 const app = express();
+
+swaggerDocs(app);
 
 //Middlewares
 app.use(cors());

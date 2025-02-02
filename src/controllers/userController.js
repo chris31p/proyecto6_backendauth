@@ -2,6 +2,67 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
+//Documentamos con Swagger
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     User:
+ *       type: object
+ *       required:
+ *         - name
+ *         - email
+ *         - password
+ *       properties:
+ *         id:
+ *           type: string
+ *           description: ID autogenerado del usuario
+ *         name:
+ *           type: string
+ *           description: Nombre del usuario
+ *         email:
+ *           type: string
+ *           description: Correo electrónico del usuario
+ *         password:
+ *           type: string
+ *           description: Contraseña del usuario
+ *         role:
+ *           type: string
+ *           description: Rol del usuario (comprador o vendedor)
+ *       example:
+ *         id: d5fE_asz
+ *         name: Juan Perez
+ *         email: juan.perez@example.com
+ *         password: password123
+ *         role: comprador
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Usuarios
+ *   description: Endpoints para gestionar usuarios
+ */
+
+/**
+ * @swagger
+ * /api/users/register:
+ *   post:
+ *     summary: Registra un nuevo usuario
+ *     tags: [Usuarios]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/User'
+ *     responses:
+ *       201:
+ *         description: Usuario registrado exitosamente
+ *       400:
+ *         description: Error al registrar el usuario
+ */
 exports.registerUser = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
@@ -21,6 +82,37 @@ exports.registerUser = async (req, res) => {
   }
 };
 
+
+/**
+ * @swagger
+ * /api/users/login:
+ *   post:
+ *     summary: Inicia sesión de usuario
+ *     tags: [Usuarios]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 description: Correo electrónico del usuario
+ *               password:
+ *                 type: string
+ *                 description: Contraseña del usuario
+ *             example:
+ *               email: juan.perez@example.com
+ *               password: password123
+ *     responses:
+ *       200:
+ *         description: Inicio de sesión exitoso, devuelve token
+ *       401:
+ *         description: El email o la contraseña no corresponden
+ *       500:
+ *         description: Hubo un error en el servidor
+ */
 exports.loginUser = async (req, res) => {
   
     try {
@@ -54,6 +146,42 @@ exports.loginUser = async (req, res) => {
     }
 };
 
+/**
+ * @swagger
+ * /api/users/update/{id}:
+ *   put:
+ *     summary: Actualiza la información de un usuario
+ *     tags: [Usuarios]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID del usuario a actualizar
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *               role:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Usuario actualizado con éxito
+ *       404:
+ *         description: Usuario no encontrado
+ *       400:
+ *         description: Error en la actualización
+ */
 exports.updateUser = async (req, res) => {
   try {
     // Actualizar usuario por ID
@@ -75,6 +203,20 @@ exports.updateUser = async (req, res) => {
   }
 };
 
+/**
+ * @swagger
+ * /api/users/verifytoken:
+ *   get:
+ *     summary: Verifica el token de autenticación
+ *     tags: [Usuarios]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: Token válido, devuelve información del usuario
+ *       401:
+ *         description: Token inválido o expirado
+ */
 exports.verifyToken = async (req, res) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
