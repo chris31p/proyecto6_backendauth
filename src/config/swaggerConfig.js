@@ -7,7 +7,7 @@ const options = {
     info: {
       title: "API de Comercio Electrónico",
       version: "1.0.0",
-      description: "Documentación de la API para gestionar usuarios, productos y carrito de compras",
+      description: "Documentación de la API para manejar la autenticación y autorización de usuarios y gestionar productos y carrito de compras",
     },
     servers: [{ url: "http://localhost:3000" }],
     components: {
