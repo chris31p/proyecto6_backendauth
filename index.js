@@ -13,10 +13,12 @@ const app = express();
 app.get('/', (req, res) => {
     res.redirect('/api-docs');
   }); 
-  
+
 //Middlewares
 app.use(cors());
 app.use(express.json()); 
+app.use(express.static('public'));  // Asegura que se sirvan archivos estáticos correctamente
+
 
 //Rutas
 app.use("/api/users", userRoutes);
