@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
 //Middlewares
 app.use(cors());
 app.use(express.json()); 
+
+// Sirve los archivos de Swagger UI desde node_modules
+app.use('/swagger-ui', express.static(path.join(__dirname, 'node_modules', 'swagger-ui-dist')));
+
 app.use(express.static('public'));  // Asegura que se sirvan archivos estáticos correctamente
 
 
