@@ -1,5 +1,6 @@
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
+const path = require('path');
 
 const options = {
   definition: {
@@ -31,7 +32,12 @@ const options = {
 const swaggerSpec = swaggerJSDoc(options);
 
 const swaggerDocs = (app) => {
-  app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+  // Servir archivos estáticos desde swagger-ui-dist
+  app.use('/swagger-ui', express.static(path.join(__dirname, '..', 'node_modules', 'swagger-ui-dist')));
+
+  // Documentación de Swagger en /api-docs
+  app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };
 
 module.exports = swaggerDocs;
+

@@ -6,34 +6,31 @@ const userRoutes = require("./src/routes/userRoutes");
 const productRoutes = require("./src/routes/productRoutes");
 const cartRoutes = require("./src/routes/cartRoutes");
 const swaggerDocs = require("./src/config/swaggerConfig");
-const path = require('path');
 
 dotenv.config();
 const app = express();
 
+// Redirigir la raíz a la documentación
 app.get('/', (req, res) => {
-    res.redirect('/api-docs');
-  }); 
+  res.redirect('/api-docs');
+}); 
 
-//Middlewares
+// Middlewares
 app.use(cors());
-app.use(express.json()); 
+app.use(express.json());
 
 // Sirve los archivos de Swagger UI desde node_modules
 app.use('/swagger-ui', express.static(path.join(__dirname, 'node_modules', 'swagger-ui-dist')));
 
-app.use(express.static('public'));  // Asegura que se sirvan archivos estáticos correctamente
-
-
-//Rutas
+// Rutas
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/carts", cartRoutes);
 
-//Documentación de Swagger
+// Documentación de Swagger
 swaggerDocs(app);
 
-//Conexión a MongoDB
+// Conexión a MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB conectado"))
@@ -41,3 +38,4 @@ mongoose
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
+
