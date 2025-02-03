@@ -139,6 +139,7 @@ La API está estructurada con MongoDB y Mongoose, interrelacionando los modelos 
 
 - La API está desplegada en:   
     🔗 Render.com - Backend
+  https://proyecto6-backendauth.onrender.com
     
 - Base de datos en:   
     🔗 MongoDB Atlas
